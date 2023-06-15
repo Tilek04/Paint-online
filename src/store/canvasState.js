@@ -1,13 +1,13 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable } from "mobx";
 
 class CanvasState {
-    canvas = null;
-    constructor() {
-        makeAutoObservable(this)
-    }
-    setCanvas(canvas) {
-        this.canvas = canvas
-    }
+  canvas = null;
+  constructor() {
+    makeAutoObservable(this);
+  }
+  setCanvas(canvas) {
+    this.canvas = canvas;
+  }
 }
 
 export default new CanvasState();
