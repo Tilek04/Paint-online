@@ -38,9 +38,7 @@ export const Toolbar = () => {
           toolState.setTool(new Line(canvasState.canvas))
         }></button>
       <input style={{ marginLeft: 10 }} type="color" />
-      <button className="toolbar__btn undo"></button>
-      <button className="toolbar__btn redo"></button>
-      <button className="toolbar__btn save"></button>
+    
     </div>
   );
 };
