@@ -21,6 +21,7 @@ export default class Rect extends Tools {
     this.ctx.beginPath();
     this.startX = e.pageX - e.target.offsetLeft;
     this.startY = e.pageY - e.target.offsetTop;
+    this.saved = this.canvas.toDataURL()
   }
 
   mouseMoveHandler(e) {
@@ -33,8 +34,16 @@ export default class Rect extends Tools {
     }
   }
   draw(x, y, w, h) {
-    this.ctx.rect(x, y, w, h);
-    this.ctx.fill();
-    this.ctx.stroke();
+    const img = new Image()
+    img.src = this.saved
+    img.onload = () => {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.ctx.drawImage(img, 0, 0)
+        this.ctx.beginPath()
+        this.ctx.rect(x, y, w, h);
+        this.ctx.fill();
+        this.ctx.stroke();
+    }
+  
   }
 }
