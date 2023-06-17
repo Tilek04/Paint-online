@@ -10,6 +10,11 @@ import Eraser from "../Tools/Eraser";
 import Line from "../Tools/LIne";
 
 export const Toolbar = () => {
+  const changeColor = (e) => {
+    toolState.setStrokeColor(e.target.value);
+    toolState.setFillColor(e.target.value);
+  };
+
   return (
     <div className="toolbar">
       <button
@@ -37,8 +42,11 @@ export const Toolbar = () => {
         onClick={() =>
           toolState.setTool(new Line(canvasState.canvas))
         }></button>
-      <input style={{ marginLeft: 10 }} type="color" />
-    
+      <input
+        onChange={(e) => changeColor(e)}
+        style={{ marginLeft: 10 }}
+        type="color"
+      />
     </div>
   );
 };
