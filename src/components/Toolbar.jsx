@@ -47,6 +47,17 @@ export const Toolbar = () => {
         style={{ marginLeft: 10 }}
         type="color"
       />
+      <button
+        className="toolbar__btn undo"
+        onClick={() => canvasState.undo()}></button>
+      <button
+        className="toolbar__btn redo"
+        onClick={() => canvasState.redo()}></button>
+      <button
+        className="toolbar__btn save"
+        onClick={() =>
+          toolState.setTool(new Line(canvasState.canvas))
+        }></button>
     </div>
   );
 };
